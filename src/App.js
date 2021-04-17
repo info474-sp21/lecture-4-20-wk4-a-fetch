@@ -24,7 +24,7 @@ const App = () => {
     //     fetchData();
     // }, [])
 
-    d3.csv('https://raw.githubusercontent.com/info474-sp21/lecture-4-15-wk3-b-eda/main/weather.csv')
+    d3.csv('https://raw.githubusercontent.com/info474-sp21/lecture-4-15-wk3-b-eda/main/data/fatal-police-shootings-data.csv')
         .then((data) => {
             console.log(data)
         });
