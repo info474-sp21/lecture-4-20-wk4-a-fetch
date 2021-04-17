@@ -2,9 +2,10 @@
   "name": "4-15-wk3-b-eda",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.html",
   "scripts": {
     "start": "parcel index.html",
+    "build": "parcel build index.html --public-url https://info474-sp21.github.io/lecture-4-15-wk3-b-eda && rm -rf docs && mv dist docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
