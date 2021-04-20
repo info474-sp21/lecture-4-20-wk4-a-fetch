@@ -26272,9 +26272,11 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require("react");
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _d3Fetch = require("d3-fetch");
-  var _jsxFileName = "C:\\Users\\phu\\OneDrive - UW\\info-474-viz\\lecture\\4-15-wk3-b-eda\\src\\App.js";
+  require("d3-fetch");
+  var _hooksUseFetch = require("./hooks/useFetch");
+  var _jsxFileName = "C:\\Users\\phu\\OneDrive - UW\\info-474-viz\\lecture\\4-15-wk3-b-eda\\src\\App.js", _s = $RefreshSig$();
   const App = () => {
+    _s();
     // useEffect(() => {
     // // create an async function
     // const fetchData = async () => {
@@ -26295,27 +26297,40 @@ try {
     // // call async function to execute
     // fetchData();
     // }, [])
-    _d3Fetch.csv('https://raw.githubusercontent.com/info474-sp21/lecture-4-15-wk3-b-eda/main/data/fatal-police-shootings-data.csv').then(data => {
-      console.log(data);
-    });
+    // d3.csv('https://raw.githubusercontent.com/info474-sp21/lecture-4-15-wk3-b-eda/main/data/fatal-police-shootings-data.csv')
+    // .then((data) => {
+    // console.log(data)
+    // });
+    const [data, loading] = _hooksUseFetch.useFetch("https://raw.githubusercontent.com/info474-sp21/lecture-4-15-wk3-b-eda/main/data/fatal-police-shootings-data.csv");
+    console.log("from hook", loading, data);
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33,
+          lineNumber: 42,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34,
+          lineNumber: 43,
           columnNumber: 13
         }
-      }, "Exploratory Data Analysis, Assignment 2"))
+      }, "Exploratory Data Analysis, Assignment 2"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45,
+          columnNumber: 13
+        }
+      }, loading && "Loading data!"))
     );
   };
+  _s(App, "Jm65JCcgUFoenM4DufkEA80vRVI=", false, function () {
+    return [_hooksUseFetch.useFetch];
+  });
   _c = App;
   exports.default = App;
   var _c;
@@ -26326,7 +26341,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","d3-fetch":"3eyo6","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3eyo6":[function(require,module,exports) {
+},{"react":"3b2NM","d3-fetch":"3eyo6","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./hooks/useFetch":"5YU3r"}],"3eyo6":[function(require,module,exports) {
 var define;
 // https://d3js.org/d3-fetch/ v2.0.0 Copyright 2020 Mike Bostock
 (function (global, factory) {
@@ -26790,6 +26805,41 @@ function registerExportsForReactRefresh(module) {
   }
 }
 
-},{"react-refresh/runtime":"592mh"}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire72fe")
+},{"react-refresh/runtime":"592mh"}],"5YU3r":[function(require,module,exports) {
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "useFetch", function () {
+    return useFetch;
+  });
+  var _d3Fetch = require("d3-fetch");
+  var _react = require("react");
+  var _s = $RefreshSig$();
+  const useFetch = url => {
+    _s();
+    const [data, setData] = _react.useState([]);
+    const [loading, setLoading] = _react.useState(true);
+    const fetchUrl = async () => {
+      const response = await _d3Fetch.csv(url);
+      setData(response);
+      setLoading(false);
+    };
+    _react.useEffect(() => {
+      fetchUrl();
+    }, []);
+    return [data, loading];
+  };
+  _s(useFetch, "YP7e7Smzxlgf2d3MqLcgRZjo83U=");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"d3-fetch":"3eyo6","react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire72fe")
 
 //# sourceMappingURL=index.3fafb3e2.js.map
